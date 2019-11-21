@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Ukrainer Map</title>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmlraWZvcm92cGl6emEiLCJhIjoiY2szNzl3c21xMDlpMjNoamxoamNueXBwMiJ9.6rXbLpu7vHeOMQD5AFBUUg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            center: [32, 48.5],
+            zoom: 5.5
+        });
+        map.on("load", function(){
+            map.addLayer({
+                'id': 'ukraine-border',
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': 'https://cors.io/?http://pastebin.com/raw/sjSnkxY7'
+                },
+                'paint': {
+                    "fill-color": "#00ffff"
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
