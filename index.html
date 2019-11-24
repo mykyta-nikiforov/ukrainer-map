@@ -3,6 +3,7 @@
 <head>
     <title>Ukrainer Map</title>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <script src='script.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
@@ -12,57 +13,6 @@
 
 <body>
     <div id='map'></div>
-
-    <script>
-        const bounds = [
-            [21.855240, 44.684277], // Southwest coordinates
-            [40.385742, 52.473998]  // Northeast coordinates
-        ];
-
-        mapboxgl.accessToken = 'pk.eyJ1IjoibmlraWZvcm92cGl6emEiLCJhIjoiY2szNzl3c21xMDlpMjNoamxoamNueXBwMiJ9.6rXbLpu7vHeOMQD5AFBUUg';
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/dark-v10',
-            // center: [32, 48.5],
-            // zoom: 5.5,
-            zoom: 3,
-            maxBounds: bounds
-        });
-
-        map.on("load", function(){
-            map.addLayer({
-                'id': 'ukraine-border',
-                'layout': {},
-                'type': 'fill',
-                'source': {
-                    'type': 'geojson',
-                    'data': 'https://raw.githubusercontent.com/nikita-nikiforov/ukrainer-map/master/ukraine.geojson'
-                },
-                'paint': {
-                    "fill-color": "#6ba834",
-                    'fill-opacity': 0.8
-                }
-            });
-
-            map.addSource('admin-0', {
-                type: 'vector',
-                url: 'mapbox://mapbox.enterprise-boundaries-a0-v2'
-            });
-            // Add a layer with boundary lines
-            map.addLayer({
-                id: 'admin-0-line',
-                type: 'line',
-                source: 'admin-0',
-                'source-layer': 'boundaries_admin_0',
-                paint: {
-                    'line-color': 'red',
-                    'line-width': ['interpolate', ['linear'], ['zoom'], 0, 2, 20, 10]
-                }
-            }, 'waterway-label');
-
-
-        })
-    </script>
 </body>
 
 </html>
