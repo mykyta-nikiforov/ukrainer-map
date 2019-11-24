@@ -22,6 +22,12 @@
           46.128139833364997
         ]
       }
-    }
-  ]
+    },
+{ "type": "Feature", "properties": { "title": "Гагаузи України. Хто вони?", "photoUrl": "https:\/\/ukrainer.net\/wp-content\/uploads\/2016\/07\/0-128-1024x640.jpg", "url": "https:\/\/ukrainer.net\/gagauzy\/" }, "geometry": { "type": "Point", "coordinates": [ 28.573082548710147, 45.682109588846089 ] } },
+{ "type": "Feature", "properties": { "title": "Тузловські лимани: дельфіни, птахи і волонтери", "photoUrl": "https:\/\/ukrainer.net\/wp-content\/uploads\/2016\/07\/13-11-1024x640.jpg", "url": "https:\/\/ukrainer.net\/tuzlovski-lymany\/" }, "geometry": { "type": "Point", "coordinates": [ 29.934383683571433, 45.739920798088534 ] } },
+{ "type": "Feature", "properties": { "title": "Сергіївка: вітрила замість очерету", "photoUrl": "https:\/\/ukrainer.net\/wp-content\/uploads\/2016\/07\/0-1-1024x640.jpg", "url": "https:\/\/ukrainer.net\/sergiyivka\/" }, "geometry": { "type": "Point", "coordinates": [ 30.373007862388651, 46.02773171813449 ] } },
+{ "type": "Feature", "properties": { "title": "Утконосівка: помідорова долина", "photoUrl": "https:\/\/ukrainer.net\/wp-content\/uploads\/2016\/07\/0-1024x640.jpg", "url": "https:\/\/ukrainer.net\/utkonosivka\/" }, "geometry": { "type": "Point", "coordinates": [ 28.954684598315325, 45.492862342376576 ] } },
+{ "type": "Feature", "properties": { "title": "Друге дихання Фрумушики", "photoUrl": "https:\/\/ukrainer.net\/wp-content\/uploads\/2016\/07\/DSC6454-4-1024x640.jpg", "url": "https:\/\/ukrainer.net\/frumushyky\/" }, "geometry": { "type": "Point", "coordinates": [ 29.410706834101784, 46.292244180138525 ] } },
+{ "type": "Feature", "properties": { "title": "Шагани. Життя на краю географії", "photoUrl": "https:\/\/ukrainer.net\/wp-content\/uploads\/2016\/07\/IMG_5076_1-1024x640.jpg", "url": "https:\/\/ukrainer.net\/shagany\/" }, "geometry": { "type": "Point", "coordinates": [ 29.84584454344651, 45.67290831091384 ] } }
+]
 }

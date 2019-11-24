@@ -17,7 +17,8 @@ map.addControl(new mapboxgl.NavigationControl());
 map.on('load', function () {
     map.addSource('places', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/nikita-nikiforov/flickr-photomap/develop/photos.json',
+        // data: 'https://raw.githubusercontent.com/nikita-nikiforov/ukrainer-map/develop/places.geojson',
+        data: 'places-qgis.geojson',
         cluster: true,
         clusterMaxZoom: 14,
         clusterRadius: 50
@@ -25,7 +26,7 @@ map.on('load', function () {
     map.addLayer({
         id: "clusters",
         type: "circle",
-        source: "photos",
+        source: "places",
         filter: ["has", "point_count"],
         paint: {
             "circle-color": [
@@ -51,7 +52,7 @@ map.on('load', function () {
     map.addLayer({
         id: "unclustered-point",
         type: "circle",
-        source: "photos",
+        source: "places",
         filter: ["!", ["has", "point_count"]],
         paint: {
             "circle-color": "#11b4da",
@@ -63,7 +64,7 @@ map.on('load', function () {
     map.addLayer({
         id: "cluster-count",
         type: "symbol",
-        source: "photos",
+        source: "places",
         filter: ["has", "point_count"],
         layout: {
             "text-field": "{point_count_abbreviated}",
@@ -75,7 +76,7 @@ map.on('load', function () {
         var features = map.queryRenderedFeatures(e.point, {layers: ['clusters']});
         var clusterId = features[0].properties.cluster_id,
             point_count = features[0].properties.point_count,
-            clusterSource = map.getSource('photos');
+            clusterSource = map.getSource('places');
         clusterSource.getClusterLeaves(clusterId, point_count, 0, function (err, features) {
             console.log("Clustered features:", features);
             var coordinates = features[0].geometry.coordinates.slice();
@@ -108,14 +109,24 @@ function buildPopupInnerCarouselHtml(features) {
         html = html + "<div class=\"carousel-item active\" style=''>\n" +
             "<a href='" + feature.properties.url + "' target=\"_blank\">" +
             "      <img class=\"photo-image d-block w-100\" src=\"" + feature.properties.photoUrl + "\">\n" +
-            "</a>" +
+            "</a>\n" +
+            " <div class=\"carousel-caption d-md-block\">\n" +
+            "   <a href='" + feature.properties.url + "' target=\"_blank\">" +
+            "      <h5 class='item-title'>" + feature.properties.title + "</h5>\n" +
+            "    </a>" +
+            "  </div>" +
             "    </div>";
     });
     features.slice(1).forEach((feature) => {
         html = html + "<div class=\"carousel-item\" style=''>\n" +
             "<a href='" + feature.properties.url + "' target=\"_blank\">" +
             "      <img class=\"photo-image d-block w-100\" src=\"" + feature.properties.photoUrl + "\">\n" +
-            "</a>" +
+            "</a>\n" +
+            " <div class=\"carousel-caption d-md-block\">\n" +
+            "   <a href='" + feature.properties.url + "' target=\"_blank\">" +
+            "      <h5 class='item-title'>" + feature.properties.title + "</h5>\n" +
+            "    </a>" +
+            "  </div>" +
             "    </div>";
     });
     html = html + "</div>" + "<a class=\"carousel-control-prev\" href=\"#photoCarousel\" role=\"button\" data-slide=\"prev\">\n" +
@@ -133,10 +144,15 @@ function buildPopupInnerCarouselHtml(features) {
 function buildPopupInnerHtml(feature) {
     var html = "<div id=\"photoCarousel\" class=\"carousel\" data-ride=\"carousel\">\n" +
         "  <div class=\"carousel-inner\">";
-    html = html + "<div class=\"carousel-item active\" style=''>\n" +
+    html = html + "<div class=\"carousel-item active\">\n" +
         "<a href='" + feature.properties.url + "' target=\"_blank\">" +
         "      <img class=\"photo-image d-block w-100\" src=\"" + feature.properties.photoUrl + "\">\n" +
-        "</a>" +
+        "</a>\n" +
+        " <div class=\"carousel-caption d-md-block\">\n" +
+        "   <a href='" + feature.properties.url + "' target=\"_blank\">" +
+        "      <h5 class='item-title'>" + feature.properties.title + "</h5>\n" +
+        "    </a>" +
+        "  </div>" +
         "    </div>";
     html = html + "</div></div>";
     return html;
