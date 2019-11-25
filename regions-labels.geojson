@@ -24,7 +24,7 @@
 ,
 {"type":"Feature","properties":{"name":"Сіверщина"},"geometry":{"type":"Point","coordinates":[33.31429,51.68949]}}
 ,
-{"type":"Feature","properties":{"name":"Наддніпров'я"},"geometry":{"type":"Point","coordinates":[31.22858,49.54156]}}
+{"type":"Feature","properties":{"name":"Наддніпрянщина"},"geometry":{"type":"Point","coordinates":[31.22858,49.54156]}}
 ,
 {"type":"Feature","properties":{"name":"Полтавщина"},"geometry":{"type":"Point","coordinates":[34.12049,49.88835]}}
 ,

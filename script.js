@@ -13,7 +13,6 @@ var map = new mapboxgl.Map({
 });
 map.addControl(new mapboxgl.NavigationControl());
 
-
 map.on('load', function () {
     map.addSource('places', {
         type: 'geojson',
